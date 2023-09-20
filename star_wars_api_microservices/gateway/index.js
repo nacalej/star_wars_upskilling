@@ -19,6 +19,12 @@ app.use("/planets", createProxyMiddleware({
     changeOrigin: true
 }));
 
+app.use("/:model", createProxyMiddleware({
+    target: "http://database:8004",
+    changeOrigin: true
+}));
+
+
 app.listen(8000, () => {
     console.log("Gateway on port 8000");
 });

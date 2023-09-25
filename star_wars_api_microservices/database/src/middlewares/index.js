@@ -1,3 +1,4 @@
 module.exports = {
-    validateModel: require("./validateModel")
+    validateModel: require("./validateModel"),
+    validateData:  require("./validateData")
 }

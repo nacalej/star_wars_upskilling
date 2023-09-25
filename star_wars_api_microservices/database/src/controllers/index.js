@@ -5,4 +5,6 @@ module.exports = {
     getRequest: catchedAsync(require('./getRequest')),
     getRequestById: catchedAsync(require('./getRequestById')),
     createRequest: catchedAsync(require('./createRequest')),
+    updateRequest: catchedAsync(require('./updateRequest')),
+    deleteRequest: catchedAsync(require('./deleteRequest')),
 }

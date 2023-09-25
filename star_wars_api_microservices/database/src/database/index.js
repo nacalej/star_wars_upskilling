@@ -18,9 +18,10 @@ const conn = mongoose.createConnection(MONGO_URI);
 
 //exportar y crear models:
 
+
 module.exports = {
     Character: conn.model("Character", require("./schemas/characterSchema.js")),
     Film: conn.model("Film", require("./schemas/filmSchema.js")),
-    Planet: conn.model("Planet", require("./schemas/planetSchema.js"))
+    Planet: conn.model("Planet", require("./schemas/planetSchema.js")),
 };
 

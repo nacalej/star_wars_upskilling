@@ -2,7 +2,13 @@ const { ClientError } = require("../utils/errors");
 
 module.exports = (req, res, next) => {
     //evaluar que no contengan datos inválidos
-    const { name } = req.body;
-    if(name) return next();
-    else throw  new ClientError("Error en el nombre", 401);
+    const { name, id} = req.body;
+
+    if(id && name){
+        return next();
+    }
+    else{
+        throw  new ClientError("Falta el nombre, o el id. Por favor agrégalo.", 401);
+    }
 };
+

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dockerBuildGateway": "docker build -t gateway .",
+    "dockeRunGateway": "docker run --network=starwars --name=gateway -p 8000:8000 gateway"
   },
   "keywords": [],
   "author": "",

@@ -69,19 +69,33 @@ const characterSchema = new Schema({
 
 //--- Begin of list method --
 characterSchema.statics.list = async function () {
-    //similar a: characters.find()
-    return await this.find()
+    //this.find --> similar a:  characters.find()
+    const findAll = await this.find()
     .populate("homeworld", ["_id", "name"])
     .populate("films", ["_id", "title"]);
+
+    if(!findAll){
+        throw new ClientError("Sorry, no records.", 404);
+    }
+
+    return findAll;
 };
 //--- End of list method --
 
 //--- Begin of getById method --
 characterSchema.statics.get = async function (id) {
 
-    return await this.findById(id)
+    const findById = await this.findById(id)
     .populate("homeworld", ["_id", "name"])
     .populate("films", ["_id", "title"]);
+
+    console.log("ID IN GET BY ID: ", id);
+
+    if(!findById){
+        throw new ClientError("Sorry, character not found.", 404);
+    }
+    return findById;
+   
 };
 //--- End of getById method --
 
@@ -139,5 +153,6 @@ characterSchema.statics.update = async function (_id, dataToUpdate) {
     
 };
 //--- End of update  method --
+
 
 module.exports = characterSchema;

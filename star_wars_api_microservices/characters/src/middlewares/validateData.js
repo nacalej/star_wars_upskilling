@@ -37,16 +37,16 @@ console.log("VALIDATE DATA: -- height--", height);
     }
 
     if(!homeworld.hasOwnProperty('_id') || !homeworld.hasOwnProperty('name')){
-        throw  new ClientError("Homeworld must be an object like: homeworld: {_id: '', name: ''} ", 400);
+        throw  new ClientError("Homeworld must be an object. For example: homeworld: {_id: '', name: ''} ", 400);
     }
 
     if(!Array.isArray(films)){
-        throw  new ClientError("Films must NOT be empty! ", 400);
+        throw  new ClientError("Films must be an array! ", 400);
     }
 
     for(const film of films) {
         if (typeof film !== "object" || !film._id || !film.title) {
-            throw  new ClientError("Films must be an array of object like: films: [{_id: '', title: ''}] ", 400);
+            throw  new ClientError("Films must be an array of object. For example: films: [{_id: '', title: ''}] ", 400);
         }
     }
 

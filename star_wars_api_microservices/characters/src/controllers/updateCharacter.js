@@ -1,11 +1,13 @@
 const axios = require('axios');
 const { response } = require('../utils');
+const data = require("../data");
 
 module.exports = async (req, res) => {
-    const data = req.body;
+    const { updateData }= req.body;
+    const { id } = req.params;
     // const characters = await axios.get("http://database:8004/Character");
-    const updateCharacter = await axios.put("http://database:8004/Character", data);
-    //console.log("CHARACTERS IN GETCHARACTER: ", characters);
+    const updateCharacter = await data.update(id, updateData);
+    console.log("UPDATE IN UPDATE CHAR CONTROLLER: ", updateCharacter);
     //res, statusCode, data
-    response(res, 200, updateCharacter.data);
+    response(res, 200, updateCharacter);
 };

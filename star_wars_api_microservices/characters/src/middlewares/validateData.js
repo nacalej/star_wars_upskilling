@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
 console.log("VALIDATE DATA: -- height--", height);
 
     if(   !_id || !name ||
-        !height ||
+        !height ==="" ||
         !mass ||
         !hair_color ||
         !skin_color ||

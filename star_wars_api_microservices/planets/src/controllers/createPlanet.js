@@ -1,7 +1,13 @@
-const Planet   = require('../data');
+const Film    = require('../data');
+const data = require("../data");
 const { response } = require('../utils');
 
 module.exports = async (req, res) => {
-    const newPlanet = await Planet.create();
+
+    const { planet } = req.body;
+
+    const newPlanet = await data.create(planet);
+    console.log("POST CREATE PLANET");
+    console.log("-- POST PLANET: --", newPlanet);
     response(res, 201, newPlanet);
 };

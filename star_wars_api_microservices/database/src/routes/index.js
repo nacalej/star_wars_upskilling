@@ -1,12 +1,14 @@
 const { Router }        = require('express');
 const store             = require('../database');
 const controllers       = require('../controllers');
-const { validateModel, validateData } = require('../middlewares');
+const { validateModel } = require('../middlewares');
 
 
 const router = Router();
 
-router.post("/:model",        validateModel, validateData, controllers.createRequest);
+// router.post("/:model",        validateModel, controllers.createRequest);
+
+router.post("/:model",        validateModel, controllers.createRequest);
 
 router.get("/:model",         validateModel, controllers.getRequest);
 

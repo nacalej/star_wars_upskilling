@@ -8,6 +8,6 @@ module.exports = async (req, res) => {
 
     const newFilm = await data.create(film);
     console.log("POST CREATE FILM");
-    console.log("-- POST FILM: --", newFilm.data);
+    console.log("-- POST FILM: --", newFilm);
     response(res, 201, newFilm);
 };

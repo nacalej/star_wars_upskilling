@@ -4,8 +4,8 @@ const data = require("../data");
 
 module.exports = async (req, res) => {
   
-    const films = await axios.list();
-    console.log("FILMS IN GETFILMS: ", characters);
+    const films = await data.list();
+    console.log("FILMS IN GETFILMS: ", films);
     //res, statusCode, data
-    response(res, 200, films.data);
+    response(res, 200, films);
 };

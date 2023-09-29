@@ -24,14 +24,14 @@ const characterSchema = new Schema({
         type: String,
         validate: {
             validator: (value) => !isNaN(value), 
-            message: "Sorry, height must be a valid number.",
+            message: "Sorry, height must be a valid number."
         },
     },
     mass: {
         type: String,
         validate: {
             validator: (value) => !isNaN(value),
-            message: "Sorry, mass must be a valid number.",
+            message: "Mass must be a valid number."
         },
         default: 'unknown'
     },
@@ -55,6 +55,7 @@ const characterSchema = new Schema({
         enum : ["male","female","unknown","n/a"],
         default: "unknown"      
     },
+  
     homeworld: {
         type: String, 
         ref: "Planet"

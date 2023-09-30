@@ -90,8 +90,6 @@ characterSchema.statics.get = async function (id) {
     .populate("homeworld", ["_id", "name"])
     .populate("films", ["_id", "title"]);
 
-   // console.log("ID IN GET BY ID: ", id);
-
     if(!findById){
         throw new ClientError("Sorry, character not found.", 404);
     }
@@ -102,22 +100,17 @@ characterSchema.statics.get = async function (id) {
 
 //--- Begin of insert method --
 characterSchema.statics.insert = async function (character) {
-   // console.log("Character name id: ", character);
     
     const { _id, name } = character;
-    //console.log("Character id: ", _id);
 
     const findCharacterById = await this.findById({ _id });
 
     if(findCharacterById){
-       // console.log("Find one encontro por id: ", findCharacterById); 
         throw new ClientError("Sorry, character already exists. Duplicate ID.", 409);
     }else {
         const findByName = await this.findOne({ name });
-        //console.log("Find one by name: ", findByName); 
     
         if(!findByName){
-            //console.log("Entro al else");
             return await this.create(character);
         }else{
             throw new ClientError("Sorry, character already exists. Duplicate name.", 409);
@@ -130,7 +123,6 @@ characterSchema.statics.insert = async function (character) {
 characterSchema.statics.delete = async function (_id) {
 
     const findCharacterById = await this.findByIdAndDelete(_id);
-    //console.log("ID IN DELETE: ", _id);
 
     if(!findCharacterById){
         throw new ClientError("Sorry, character not found.", 404);
@@ -141,9 +133,7 @@ characterSchema.statics.delete = async function (_id) {
 
 //--- Begin of update method --
 characterSchema.statics.update = async function (_id, dataToUpdate) {
-    //console.log("DATA: ", dataToUpdate);
     const findCharacter = await this.findById({_id});
-//console.log("ID IN UPDATE: ", _id);
 
     if(findCharacter){
         const updateCharacter = await this.findByIdAndUpdate(_id, dataToUpdate, {new:true, runValidators: true})

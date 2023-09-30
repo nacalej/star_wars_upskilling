@@ -4,7 +4,6 @@ const baseUrl = "http://database:8004/Film";
 module.exports = {
     // function que retorna los films
     list: async () => {
-       // console.log("IN Dataaaaaa Film file");
         const films = await axios.get(baseUrl);
         return films.data;
     },

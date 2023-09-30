@@ -8,7 +8,7 @@ server.use(morgan('dev'));
 
 //server.use('/database', require("./routes"));
 server.use(require("./routes"));
-//si no encuentra ningun endpoint con la request, lo recibe este controller
+//si no encuentra ningún endpoint con la request, lo recibe este controller
 server.use('*', (req, res) => {
     res.status(404).send("Not found");
 });

@@ -90,8 +90,6 @@ planetSchema.statics.get = async function (id) {
     .populate("residents", ["_id", "name"])
     .populate("films", ["_id", "title"]);
 
-    //console.log("ID IN GET BY ID: ", id);
-
     if(!findPLanetById){
         throw new ClientError("Sorry, planet not found.", 404);
     }
@@ -102,19 +100,15 @@ planetSchema.statics.get = async function (id) {
 
 //--- Begin of insert method --
 planetSchema.statics.insert = async function (planet) {
-    //console.log("Planet name id: ", planet);
     
     const { _id, name } = planet;
-    ///console.log("Planet id: ", _id);
 
     const findPLanetById = await this.findById({ _id });
 
     if(findPLanetById){
-      //  console.log("Find one encontro por id: ", findPLanetById); 
         throw new ClientError("Sorry, planet already exists. Duplicate ID.", 409);
     }else {
         const findByName = await this.findOne({ name });
-        //console.log("Find one by name: ", findByName); 
     
         if(!findByName){
           //  console.log("Entro al else");
@@ -130,7 +124,6 @@ planetSchema.statics.insert = async function (planet) {
 planetSchema.statics.delete = async function (_id) {
 
     const findPLanetById = await this.findByIdAndDelete(_id);
-    //console.log("ID IN DELETE: ", _id);
 
     if(!findPLanetById){
         throw new ClientError("Sorry, planet not found.", 404);
@@ -142,9 +135,7 @@ planetSchema.statics.delete = async function (_id) {
 //--- Begin of update method --
 planetSchema.statics.update = async function (_id, dataToUpdate) {
     
-    //console.log("DATA: ", dataToUpdate);
     const findPlanet = await this.findById({_id});
-    //console.log("ID IN UPDATE: ", _id);
 
     if(findPlanet){
         const updatePlanet = await this.findByIdAndUpdate(_id, dataToUpdate, {new:true, runValidators: true})

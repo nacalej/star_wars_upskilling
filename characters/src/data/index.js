@@ -5,7 +5,6 @@ const baseUrl = "http://database:8004/Character";
 module.exports = {
     // function que retorna los characters
     list: async () => {
-        //console.log("IN Dataaaaaa");
         const characters = await axios.get(baseUrl);
         return characters.data;
     },

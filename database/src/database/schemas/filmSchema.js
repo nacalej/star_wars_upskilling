@@ -56,8 +56,6 @@ filmSchema.statics.get = async function (id) {
     .populate("characters", ["_id", "name"])
     .populate("planets", ["_id", "title"]);
 
-    //console.log("ID IN GET BY ID: ", id);
-
     if(!findFilmById){
         throw new ClientError("Sorry, film not found.", 404);
     }
@@ -69,11 +67,9 @@ filmSchema.statics.get = async function (id) {
 //--- Begin of insert method --
 filmSchema.statics.insert = async function (film) {
 
-    //console.log("Film name id: ", film);
     const findFilmById = await this.findById({ _id: film._id });
 
     if(findFilmById){
-       // console.log("Find one encontro por id: ", findFilmById); 
         throw new ClientError("Sorry, film already exists. Duplicate ID.", 409);
     }else {
         return await this.create(film);
@@ -85,7 +81,6 @@ filmSchema.statics.insert = async function (film) {
 filmSchema.statics.delete = async function (_id) {
 
     const findFilmById = await this.findByIdAndDelete(_id);
-    //console.log("ID IN DELETE: ", _id);
 
     if(!findFilmById){
         throw new ClientError("Sorry, film not found.", 404);
@@ -96,9 +91,8 @@ filmSchema.statics.delete = async function (_id) {
 
 //--- Begin of update method --
 filmSchema.statics.update = async function (_id, dataToUpdate) {
-   // console.log("DATA: ", dataToUpdate);
+
     const findFilm = await this.findById({_id});
-    //console.log("ID IN UPDATE: ", _id);
 
     if(findFilm){
         const updateFilm = await this.findByIdAndUpdate(_id, dataToUpdate, {new:true, runValidators: true})

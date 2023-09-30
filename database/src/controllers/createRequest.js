@@ -7,7 +7,6 @@ module.exports = async (req, res) => {
     const { model } = req.params;
 
     const record = req.body;
-    //console.log("-- createRequest body: --", record);
     const newRecord = await store[model].insert(record);
     response(res, 200, newRecord);
 };

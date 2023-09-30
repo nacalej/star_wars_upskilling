@@ -11,6 +11,7 @@ y películas de la saga ```Star wars``` a través del microservicio _Gateway_ co
 
 * 🤖 Las tecnologías utilizadas para el desarrollo del proyecto fueron: ```Docker``` para empaquetar la aplicación, ```Docker compose``` para gestionar los contenedores Docker, ```ExpressJS``` como framework backend, ```MongoDB``` para la gestión de datos y ```Mongoose``` como ORM para enviar y obtener información desde/hacia la base de datos.
 
+
 > Para ejecutar este proyecto se debe hacer una copia (fork) del repositorio, ejecutar localmente: ```docker-compose build``` y luego: ```docker-compose up```
 
 

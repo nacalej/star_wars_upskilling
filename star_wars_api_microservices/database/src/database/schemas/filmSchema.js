@@ -69,12 +69,11 @@ filmSchema.statics.get = async function (id) {
 //--- Begin of insert method --
 filmSchema.statics.insert = async function (film) {
 
-    console.log("Film name id: ", character);
-
-    const findFilmById = await this.findById({ _id });
+    console.log("Film name id: ", film);
+    const findFilmById = await this.findById({ _id: film._id });
 
     if(findFilmById){
-        console.log("Find one encontro por id: ", findCharacterById); 
+        console.log("Find one encontro por id: ", findFilmById); 
         throw new ClientError("Sorry, film already exists. Duplicate ID.", 409);
     }else {
         return await this.create(film);

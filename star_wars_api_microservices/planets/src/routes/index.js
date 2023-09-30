@@ -8,8 +8,7 @@ const router   = Router();
 
 router.get('/', controllers.getPlanets);
 router.get("/:id", controllers.getPlanetById);
-//router.post('/', middlewares.validateDataPlanet, controllers.createPlanet);
-router.post('/', middlewares.validateDataPlanet);
+router.post('/', middlewares.validateDataPlanet, controllers.createPlanet);
 
 router.delete("/:id", controllers.deletePlanet);
 router.put("/", controllers.updatePlanet);

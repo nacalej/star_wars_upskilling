@@ -36,10 +36,12 @@ const characterSchema = new Schema({
         default: 'unknown'
     },
     hair_color: {
-        type: String
+        type: String,
+        default: 'unknown'
     },
     skin_color: {
-        type: String
+        type: String,
+        default: 'unknown'
     },
     eye_color: {
         type: String,

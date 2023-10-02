@@ -1,7 +1,7 @@
  <h1 align="center">Star Wars - Microservicios.🌌 </h1>
 
 
-Proyecto creado durante el curso ```Upskilling Back End``` del ```Bootcamp Henry```, con el propósito de implementar una plataforma de microservicios básica. 
+Proyecto individual creado durante el curso ```Upskilling Back End``` del ```Bootcamp Henry```, con el propósito de implementar una plataforma de microservicios básica. 
 
 
 * ⭐ El proyecto está conformado por 5 servicios pequeños, autónomos e interconectados utilizando peticiones HTTP. Cada microservicio permite ```crear, obtener, actualizar y eliminar``` información sobre personajes, planetas

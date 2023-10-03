@@ -11,21 +11,21 @@ services:
   characters:
     container_name: characters
     restart: always
-    build: ./Characters 
+    build: ./characters 
     ports:
       - "8001:8001"
 
   films:
     container_name: films
     restart: always
-    build: ./Films 
+    build: ./films 
     ports:
       - "8002:8002"
 
   planets:
     container_name: planets
     restart: always
-    build: ./Planets 
+    build: ./planets 
     ports:
       - "8003:8003"
 

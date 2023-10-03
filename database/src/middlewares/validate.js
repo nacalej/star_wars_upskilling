@@ -125,21 +125,25 @@ module.exports = (req, res, next) => {
             throw  new ClientError("Homeworld must NOT be empty! ", 400);
         }
     
-        if(!homeworld.hasOwnProperty('_id') || !homeworld.hasOwnProperty('name')){
-            throw  new ClientError("Homeworld must be an object. For example: homeworld: {_id: '', name: ''} ", 400);
-        }
+        // if(!homeworld.hasOwnProperty('_id') || !homeworld.hasOwnProperty('name')){
+        //     throw  new ClientError("Homeworld must be an object. For example: homeworld: {_id: '', name: ''} ", 400);
+        // }
 
-        if(!films.hasOwnProperty('_id') || !films.hasOwnProperty('title')){
-            throw  new ClientError("Films must be an array of object. For example: films: [{_id: '', title: ''}] ", 400);
-        }
+        // if(!films.hasOwnProperty('_id') || !films.hasOwnProperty('title')){
+        //     throw  new ClientError("Films must be an array of object. For example: films: [{_id: '', title: ''}] ", 400);
+        // }
+        
+        // if(!Array.isArray(films) || typeof films !== "object" || Object.entries(films).length === 0 ){
+        //     throw  new ClientError("Films must be an array ust NOT be empty ", 400);
+        // }
     
         if(!Array.isArray(films)){
             throw  new ClientError("Films must be an array! ", 400);
         }
     
         for(const film of films) {
-            if (typeof film !== "object" || !film._id || !film.title) {
-                throw  new ClientError("Films must be an array of object. For example: films: [{_id: '', title: ''}] ", 400);
+            if (typeof film !== "object" || !film._id ) {
+                throw  new ClientError("Films must be an array of object. For example: films: [{'_id': ''}] ", 400);
             }
         }
     

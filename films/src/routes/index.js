@@ -8,7 +8,7 @@ const router   = Router();
 
 router.get('/', controllers.getFilms);
 router.get("/:id", controllers.getFilmById);
-router.post('/', middlewares.filmsValidation, controllers.createFilm);
+router.post('/', controllers.createFilm);
 router.delete("/:id", controllers.deleteFilm);
 router.put("/", controllers.updateFilm);
 
